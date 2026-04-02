@@ -43,41 +43,47 @@
 
   .nav-links-container {
     display: none;
-    position: absolute;
+    position: fixed;
     width: 100%;
+    height: calc(100vh - 70px);
     left: 0;
     right: 0;
     top: 70px;
     background: var(--bg-glass);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--border-glass);
-    border-top: 2px solid var(--accent-primary);
+    border: none;
     z-index: 50;
+    overflow-y: auto;
   }
 
   .nav-links-container.open {
-    display: block;
+    display: flex;
     animation: slideDown 0.3s ease-out;
   }
 
   .nav-links-container .nav-links {
+    display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 0;
     padding: 20px;
     align-items: stretch;
+    width: 100%;
   }
 
   .nav-links-container .nav-links a {
-    padding: 12px 0;
+    padding: 16px 20px;
     border-bottom: 1px solid var(--border-glass);
     font-weight: 600;
     color: var(--text-primary);
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
+    font-size: 1.1rem;
   }
 
   .nav-links-container .nav-links a:hover {
     color: var(--accent-primary);
+    background: rgba(0, 229, 255, 0.1);
+    padding-left: 30px;
   }
 
   .nav-links-container .nav-links a:last-of-type {
@@ -85,20 +91,27 @@
   }
 
   .theme-toggle-wrapper {
-    padding: 12px 0;
+    padding: 16px 20px;
     border-bottom: 1px solid var(--border-glass);
     display: flex;
     align-items: center;
+    gap: 10px;
   }
 
   .nav-links-container .nav-login {
-    width: 100%;
-    padding: 12px 24px;
-    margin-top: 10px;
+    width: calc(100% - 40px);
+    padding: 16px 24px;
+    margin: 20px;
     background: var(--accent-secondary);
     color: white;
     border-radius: 20px;
     font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .nav-links-container .nav-login:active {
+    transform: scale(0.98);
   }
 }
 
