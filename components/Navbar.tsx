@@ -50,10 +50,13 @@ export default function Navbar() {
           <div className={styles["theme-toggle-wrapper"]}>
             <ThemeToggle />
           </div>
-          <button className="nav-login" onClick={closeMenu}>
-            LOGIN
-          </button>
         </div>
+        <button
+          className={`${styles["nav-login-btn"]} nav-login`}
+          onClick={closeMenu}
+        >
+          LOGIN
+        </button>
       </div>
     </nav>
   );
