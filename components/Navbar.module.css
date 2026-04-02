@@ -1,0 +1,132 @@
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--accent-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.nav-links-container {
+  display: contents;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links-container {
+    display: none;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 70px;
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glass);
+    border-top: 2px solid var(--accent-primary);
+    z-index: 50;
+  }
+
+  .nav-links-container.open {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  .nav-links-container .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    align-items: stretch;
+  }
+
+  .nav-links-container .nav-links a {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-glass);
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: color 0.2s ease;
+  }
+
+  .nav-links-container .nav-links a:hover {
+    color: var(--accent-primary);
+  }
+
+  .nav-links-container .nav-links a:last-of-type {
+    border-bottom: none;
+  }
+
+  .theme-toggle-wrapper {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-glass);
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links-container .nav-login {
+    width: 100%;
+    padding: 12px 24px;
+    margin-top: 10px;
+    background: var(--accent-secondary);
+    color: white;
+    border-radius: 20px;
+    font-weight: 700;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+  .nav-links-container {
+    display: contents;
+  }
+
+  .nav-links-container .nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .theme-toggle-wrapper {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

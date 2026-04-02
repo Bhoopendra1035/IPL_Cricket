@@ -1,16 +1,16 @@
-import type { Metadata } from 'next'
-import ThemeToggle from '../components/ThemeToggle'
-import './globals.css'
+import type { Metadata } from "next";
+import Navbar from "../components/Navbar";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'StreamMax | Premium Cricket Experience',
-  description: 'Watch the best cricket matches live in ultra HD quality.',
-}
+  title: "StreamMax | Premium Cricket Experience",
+  description: "Watch the best cricket matches live in ultra HD quality.",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -31,21 +31,14 @@ export default function RootLayout({
             `,
           }}
         />
-        <nav className="glass-panel main-nav">
-          <div className="nav-logo">STREAMMAX</div>
-          <div className="nav-links">
-            <a href="#matches">Live Matches</a>
-            <a href="#highlights">Highlights</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#sponsors">Sponsors</a>
-            <ThemeToggle />
-            <button className="nav-login">LOGIN</button>
-          </div>
-        </nav>
+        <Navbar />
         {children}
         <footer className="glass-panel main-footer">
           <h2 className="text-gradient">STREAMMAX PRO</h2>
-          <p className="footer-desc">Experience the adrenaline-pumping action of cricket with high-definition streaming.</p>
+          <p className="footer-desc">
+            Experience the adrenaline-pumping action of cricket with
+            high-definition streaming.
+          </p>
           <div className="footer-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
@@ -55,5 +48,5 @@ export default function RootLayout({
         </footer>
       </body>
     </html>
-  )
+  );
 }
